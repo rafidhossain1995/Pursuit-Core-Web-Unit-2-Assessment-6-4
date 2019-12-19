@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", ()=>{
-    let form = document.querySelector("form")
+    let review = document.querySelector("form")
     let select = document.querySelector(".select")
     let text = document.querySelector(".text")
     let type = document.querySelector(".type")
     let movieDescription = document.querySelector(".movieDesc")
+    let ul = document.querySelector("ul")
 
     const selectMovie = async()=>{
         try{
@@ -26,23 +27,35 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let description = document.createElement("p")
         movieDescription.appendChild(description)
 
-        select.addEventListener("change", async (e)=>{
-            title.innerText = e.target.value
-            try{
-                let res = await axios.get("https://ghibliapi.herokuapp.com/films")
+    select.addEventListener("change", async (e)=>{
+        title.innerText = e.target.value
+        try{
+            let res = await axios.get("https://ghibliapi.herokuapp.com/films")
                 //debugger
-                let title = res.data
-                title.forEach(movie=>{
-                    if(e.target.value === movie.title){
-                        releaseYear.innerText = movie.release_date
-                        description.innerText = movie.description
-                    }
+            let title = res.data
+            title.forEach(movie=>{
+                if(e.target.value === movie.title){
+                    releaseYear.innerText = movie.release_date
+                    description.innerText = movie.description
+                }
 
-                })
-            }catch(err){
-                console.log(err)
-            }
+            })
+        }catch(err){
+            console.log(err)
+        }
+
+       
         })
+    review.addEventListener("submit", (e)=>{
+        e.preventDefault()
+        let li = document.createElement("li")
+        let input = document.querySelector(".text")
+        li.innerText = text.value
+        review.appendChild(ul)
+        ul.appendChild(li)
+
+    })
+
     }
     selectMovie()
 })
