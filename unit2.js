@@ -38,14 +38,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     releaseYear.innerText = movie.release_date
                     description.innerText = movie.description
                 }
-
             })
         }catch(err){
             console.log(err)
-        }
-
-       
-        })
+        }  
+     })
     review.addEventListener("submit", (e)=>{
         e.preventDefault()
         let li = document.createElement("li")
