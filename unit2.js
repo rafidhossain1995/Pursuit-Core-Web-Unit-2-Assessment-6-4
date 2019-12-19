@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }  
      })
     review.addEventListener("submit", (e)=>{
-        
         e.preventDefault()
         let li = document.createElement("li")
         let input = document.querySelector(".text")
