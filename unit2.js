@@ -44,10 +44,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }  
      })
     review.addEventListener("submit", (e)=>{
+        
         e.preventDefault()
         let li = document.createElement("li")
         let input = document.querySelector(".text")
-        li.innerText =   text.value
+        li.innerText =  text.value
         review.appendChild(ul)
         ul.appendChild(li)
 

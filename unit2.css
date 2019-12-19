@@ -1,25 +1,33 @@
 body{
     font-family: monospace;
     background-color: lavender;
-    margin-left:auto;
+     margin-left:auto;
     margin-right:auto;
-    width:80%;
-    
+    width:70%; 
+     
 }
 header{
-    width: 70%;
+    width: 90%;
     height: 150px;
-    padding-left: 16px;
+    padding-left: 20px;
     margin-bottom: 30px;
     padding: 30px;
     background-color: skyblue;
+    overflow: hidden;
 
     
     
 }
 img{
-    width: 70%;
-    height: 130px;
+    width: 30%;
+    height: 100px;
     /* margin-bottom: 10px; */
     padding: 1px
 }
+.text{
+    width: 60%;
+}
+.review{
+    margin-left: 600px;
+}
+
