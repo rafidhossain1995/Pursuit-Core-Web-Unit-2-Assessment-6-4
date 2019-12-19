@@ -26,15 +26,19 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let description = document.createElement("p")
         movieDescription.appendChild(description)
 
-        select.addEventListener("change",  (e)=>{
+        select.addEventListener("change", async (e)=>{
             title.innerText = e.target.value
             try{
-                let res2 =  axios.get("https://ghibliapi.herokuapp.com/films")
-                let films = res.data
-                // films.forEach(film=>{
-                //     if(e.target.value === movie.title)
+                let res = await axios.get("https://ghibliapi.herokuapp.com/films")
+                //debugger
+                let title = res.data
+                title.forEach(movie=>{
+                    if(e.target.value === movie.title){
+                        releaseYear.innerText = movie.release_date
+                        description.innerText = movie.description
+                    }
 
-                // })
+                })
             }catch(err){
                 console.log(err)
             }
